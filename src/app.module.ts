@@ -8,7 +8,8 @@ import * as Joi from '@hapi/joi'
 import { AuthModule } from './auth/auth.module'
 import { APP_GUARD } from '@nestjs/core'
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard'
-
+import { VideosModule } from './videos/videos.module'
+import { PandaVideoModule } from './panda-video/panda-video.module'
 @Module({
 	imports: [
 		ConfigModule.forRoot({
@@ -23,7 +24,9 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard'
 		}),
 		DatabaseModule,
 		UsersModule,
-		AuthModule
+		AuthModule,
+		VideosModule,
+		PandaVideoModule
 	],
 	controllers: [AppController],
 	providers: [
