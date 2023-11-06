@@ -41,9 +41,22 @@ export class VideosService {
 	}
 
 	async findOne(id: number): Promise<Video> {
-		return await this.repository.findOne({
-			where: { id }
-		})
+		// return await this.repository.findOne({
+		// 	where: { id }
+		// })
+		const queryBuilder = this.repository.createQueryBuilder('video')
+		queryBuilder.leftJoinAndSelect('video.user', 'user')
+		queryBuilder.select([
+			'video.id',
+			'video.title',
+			'video.videoId',
+			'video.status',
+			'user.id',
+			'user.name'
+		])
+		queryBuilder.where('video.id = :id', { id: id })
+
+		return queryBuilder.getOne()
 	}
 
 	async findByUserId(id: number): Promise<Video[]> {

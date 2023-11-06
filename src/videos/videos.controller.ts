@@ -37,7 +37,7 @@ export class VideosController {
 	async findOne(@Param('id') id: number): Promise<Video> {
 		return await this.videosService.findOne(id)
 	}
-	@Get('/user:userId')
+	@Get('/user/:userId')
 	async findByUserId(@Param('userId') id: number): Promise<Video[]> {
 		return await this.videosService.findByUserId(id)
 	}
