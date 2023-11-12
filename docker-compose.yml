@@ -1,0 +1,41 @@
+version: '3'
+services:
+  nestjs-app:
+    image: biojj/video-streaming-back:1.0
+    container_name: video-streaming-back
+    ports:
+      - 3000:3000
+    networks:
+      - docker-cost
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: roo123
+      POSTGRES_DB: cost-spreadsheet
+      JWT_SECRET_KEY: Lr9UAevTgV7TnHLSHp0/9L5MaU4323AfPcqSjm+PZ3w=
+
+  vue-app:
+    image: biojj/video-streaming-front:1.0
+    container_name: video-streaming-front
+    ports:
+      - 8080:8080
+    networks: 
+      - docker-cost
+    environment:
+      VITE_BASE_URL: nestjs-app
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: roo123
+      POSTGRES_DB: cost-spreadsheet
+    ports:
+      - "5432:5432"
+    networks:
+      - docker-cost
+
+networks:
+  docker-cost:
+    driver: bridge
