@@ -45,6 +45,33 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Running the app with docker
+```bash
+# development
+$ docker-compose up -d
+
+```
+
+## Verifique se as 3 imagens subiram:
+```bash
+# video-streaming-back
+# video-streaming-front
+# video-streaming-back-postgres
+$ docker ps
+
+```
+### OBS: caso as 3 não apareçam, repita o comando 'docker-compose up -d'
+
+
+## Acesse a aplicação pelo browser: localhost:8080
+
+#
+## Aplicações:
+- Check list de desenvolvimento: https://biojj.notion.site/Desenvolvedor-a-Full-Stack-Pleno-para-Plataforma-de-Streaming-de-V-deo-5f15378aa7284074b21a387456441c22?pvs=4
+- FRONT -> https://github.com/BioJJ/video-streaming-front
+- Colletion Postman: https://api.postman.com/collections/5491216-4c84829e-21c9-4f88-8b26-79f40a0be9a9?access_key=PMAT-01HF29NWRB3YKJJT6XF40FXZZF
+
+
 ## Test
 
 ```bash
@@ -64,9 +91,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - https://www.linkedin.com/in/jefferson-coelho/
+- Website - https://github.com/BioJJ
+- Twitter - https://twitter.com/bio_jefferson
 
 ## License
 
